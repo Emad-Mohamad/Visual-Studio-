@@ -1,0 +1,131 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Cozy Music Corner";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        /* 🎨 Cozy Color Palette */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #3b2f2f, #7b5e57, #b08968);
+            background-attachment: fixed;
+            color: #fdf6f0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            margin-top: 60px;
+            font-size: 3rem;
+            color: #fdf6f0;
+            text-shadow: 0 0 15px rgba(255, 214, 170, 0.8);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #f3e0d2;
+            margin-bottom: 40px;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        iframe {
+            width: 800px;
+            height: 450px;
+            border: 3px solid #e9c46a;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(233, 196, 106, 0.4);
+        }
+
+        footer {
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: #f1dec9;
+            opacity: 0.8;
+        }
+
+        /* ✨ Cozy Glow Animation */
+        @@keyframes warmGlow {
+            0% { text-shadow: 0 0 15px #f4a261, 0 0 30px #e9c46a; }
+            50% { text-shadow: 0 0 25px #e76f51, 0 0 40px #f4a261; }
+            100% { text-shadow: 0 0 15px #f4a261, 0 0 30px #e9c46a; }
+        }
+
+        /* 🌿 Floating Candle Animation */
+        .candle {
+            position: absolute;
+            bottom: 0;
+            width: 20px;
+            height: 50px;
+            background: linear-gradient(to top, #ffb347, #ffcc33);
+            border-radius: 10px 10px 2px 2px;
+            box-shadow: 0 0 15px #ffcc33;
+            animation: floatUp 6s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        @@keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0.9; }
+            50% { transform: translateY(-30px) scale(1.1); opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 0.8; }
+        }
+
+        /* Random candle positions */
+        .candle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .candle:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .candle:nth-child(3) { left: 50%; animation-delay: 1s; }
+        .candle:nth-child(4) { left: 70%; animation-delay: 3s; }
+        .candle:nth-child(5) { left: 90%; animation-delay: 1.5s; }
+    </style>
+</head>
+<body>
+    <h1 id="animatedTitle">Welcome to My Cozy Music Corner ☕</h1>
+    <p class="subtitle">Relax, take a sip, and enjoy the vibes 🎶</p>
+
+    <div class="video-container">
+        <!-- Replace the video ID below with your favorite YouTube song -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/wsc-XsSVqWY?si=7hN188dDBhg9V8bq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <footer>
+        <p>✨ Made with warmth and rhythm using ASP.NET Core ✨</p>
+    </footer>
+
+    <!-- Floating candle decorations -->
+    <div class="candle"></div>
+    <div class="candle"></div>
+    <div class="candle"></div>
+    <div class="candle"></div>
+    <div class="candle"></div>
+
+    <script>
+        // 🔥 Smooth color transition animation for title
+        const title = document.getElementById('animatedTitle');
+        const colors = ['#f4a261', '#e76f51', '#e9c46a', '#f1faee', '#f8edeb'];
+        let i = 0;
+
+        function cozyLoop() {
+            title.style.color = colors[i];
+            title.style.animation = 'warmGlow 3s ease-in-out infinite';
+            i = (i + 1) % colors.length;
+        }
+
+        cozyLoop(); // start animation
+    </script>
+</body>
+</html>
